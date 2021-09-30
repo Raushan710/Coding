@@ -18,6 +18,7 @@ for(int i=0;i<n;i++)
         }     
         if(j==n)
           cout<<A[i]<<" "; 
+          cout<<A[i+1]<<" ";
     }
   return 0;
 }
