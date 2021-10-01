@@ -1,0 +1,26 @@
+// C++ implementation of the approach
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// Function to print the expansion of the string
+void printExpansion(string str)
+{
+    int size = 0;
+    for (int i = str.length() - 1; i >= 0; i--) {
+ 
+        // Take sub-string from i to n-1
+        string subStr = str.substr(i, ++size);
+ 
+        // Print the sub-string
+        cout << subStr;
+    }
+}
+ 
+// Driver code
+int main()
+{
+    string str = "geeks";
+    printExpansion(str);
+ 
+    return 0;
+}
