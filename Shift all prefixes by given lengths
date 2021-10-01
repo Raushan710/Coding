@@ -1,0 +1,52 @@
+// CPP implementation of above approach
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to find S after shifting each letter
+string shift_S(string S, int Shift[], int n)
+{
+	// update shift array for each element
+	for (int i = n - 2; i >= 0; --i)
+		Shift[i] += Shift[i + 1];
+
+	// finding the new shifted string
+	string result = "";
+
+	// traverse S and shift letters according to shift array
+	for (int i = 0; i < S.length(); i++) {
+
+		// For upper letters
+		if (isupper(S[i])) {
+			result += char((int(S[i]) + Shift[i] - 'A') % 26 + 'A');
+		}
+
+		// For lower letters
+		else if (islower(S[i])) {			
+			result += char((int(S[i]) + Shift[i] - 'a') % 26 + 'a');
+		}
+
+		// For digits
+		else {			
+			result += char((int(S[i]) + Shift[i] - '0') % 10 + '0');
+		}
+	}
+
+	// Return the shifted string
+	return result;
+}
+
+// Driver program
+int main()
+{
+	string S = "abc";
+	int Shift[] = { 2, 5, 9 };
+
+	int n = sizeof(Shift) / sizeof(Shift[0]);
+
+	// function call to print required answer
+	cout << shift_S(S, Shift, n);
+
+	return 0;
+}
+
+// This code is written by Sanjit_Prasad
