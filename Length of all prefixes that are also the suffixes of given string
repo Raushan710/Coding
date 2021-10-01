@@ -1,0 +1,42 @@
+// C++ program for the above approach
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to find the length of all
+// prefixes of the given string that
+// are also suffixes of the same string
+void countSamePrefixSuffix(string s, int n)
+{
+	// Stores the prefix string
+	string prefix = "";
+
+	// Traverse the string S
+	for (int i = 0; i < n - 1; i++) {
+
+		// Add the current character
+		// to the prefix string
+		prefix += s[i];
+
+		// Store the suffix string
+		string suffix = s.substr(
+			n - 1 - i, n - 1);
+
+
+		// Check if both the strings
+		// are equal or not
+		if (prefix == suffix) {
+		cout << prefix.size() << " ";
+		}
+	}
+}
+
+// Driver Code
+int main()
+{
+	string S = "ababababab";
+	int N = S.size();
+	countSamePrefixSuffix(S, N);
+
+	return 0;
+}
