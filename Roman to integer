@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+int roman(string s)
+{ int sum=0, prev_ind=0;
+    for(int i=s.length()-1;i>=0;i--)
+    { 
+        int num=0; 
+        // for getting numerical value of roman literals
+        switch(s[i])
+        {
+           case 'I': num=1; break;
+           case 'V': num=5; break;
+           case 'X': num=10; break;
+           case 'L': num=50; break;
+           case 'C': num=100; break;
+           case 'D': num=500; break;
+           case 'M': num=1000; break;
+        }
+        if(prev_ind<num)
+        sum+=num;
+        else
+        sum-=num;
+        prev_ind=num;
+    }
+    return sum;
+}
+int main()
+{
+    string s;
+    cin>>s;
+    cout<<roman(s);
+    return 0;
+}
